@@ -1,0 +1,7 @@
+specVersion: '2.2'
+metadata:
+  name: SAP-UI5
+type: application
+framework:
+  name: SAPUI5
+  version: "1.84.1"

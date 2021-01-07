@@ -1,0 +1,29 @@
+{
+    "Customer-Transactions":[
+        {
+            "id": 44 ,
+            "type": "won",
+            "Date": "12.04.2010"
+        },
+        {
+            "id": 33 ,
+            "type": "lost",
+            "Date": "08.10.2008"
+        },
+        {
+            "id": 4 ,
+            "type": "won",
+            "Date": "10.28.2010"
+        },
+        {
+            "id": 3 ,
+            "type": "lost",
+            "Date": "11.10.2015"
+        },
+        {
+            "id": 3 ,
+            "type": "lost",
+            "Date": "11.20.2015"
+        }
+    ]
+}

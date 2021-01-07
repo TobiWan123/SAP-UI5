@@ -1,0 +1,34 @@
+{
+    "Deposit-Payout": [
+      {
+        "Value": 1000,
+        "type": "Payout",
+        "Date": "12.05.2009"
+      },
+      {
+        "Value": 800,
+        "type": "Payout",
+        "Date": "12.06.2009" 
+      },
+      {
+        "Value": 1200,
+        "type": "Deposit",
+        "Date": "12.05.2011"
+      },
+      {
+        "Value": 1500,
+        "type": "Payout",
+        "Date": "12.05.2012"
+      },
+      {
+        "Value": 1000,
+        "type": "Deposit",
+        "Date": "12.05.2013"
+      },
+      {
+        "Value": 2000,
+        "type": "Deposit",
+        "Date": "12.05.2009"
+      }
+    ]
+  }

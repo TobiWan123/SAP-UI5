@@ -1,0 +1,25 @@
+<mvc:View
+		controllerName="sap.ui.sap-ui5.controller.navigation"
+		xmlns="sap.m"
+		xmlns:mvc="sap.ui.core.mvc"
+		displayBlock="true">
+		<Panel
+			class="sapUiResponsiveMargin"
+			width="auto">
+			<content>
+				<Button 
+					text="{i18n>layout1Title}"
+					class="sapUiSmallMargin"
+				    press="onNavToOverview"/>
+				<Button 
+					text="{i18n>layout2Title}"
+					class="sapUiSmallMargin"
+				    press="onNavToCustomer"/>
+				<Button
+					icon="sap-icon://hello-world"
+					class="sapUiSmallMargin log-btn"
+           			text="Log Data"
+					press=".log"/>
+			</content>
+	    </Panel>
+</mvc:View>

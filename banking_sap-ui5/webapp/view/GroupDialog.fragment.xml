@@ -1,0 +1,9 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+
+    <ViewSettingsDialog confirm=".onGroupDialogConfirm" cancel=".onExit" id="groupDialog">
+        <groupItems>
+            <ViewSettingsItem text="Geschlecht" key="Geschlecht"/>
+            <ViewSettingsItem text="Alter" key="Alter"/>
+        </groupItems>
+    </ViewSettingsDialog>
+</core:FragmentDefinition>

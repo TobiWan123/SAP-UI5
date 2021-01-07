@@ -1,0 +1,78 @@
+<mvc:View
+   controllerName="sap.ui.sap-ui5.controller.overview"
+   xmlns="sap.m"
+   xmlns:l="sap.ui.layout"
+   xmlns:f="sap.f"
+   xmlns:viz="sap.viz.ui5"
+   xmlns:mvc="sap.ui.core.mvc"
+   xmlns:cards="sap.f.cards"
+   xmlns:tnt="sap.tnt">
+   <Page id="overview_page" title="{i18n>layout1Title}">
+      <mvc:XMLView viewName="sap.ui.sap-ui5.view.navigation"/>
+      <Panel 	
+         headerText="Filter Date"
+		   class="sapUiResponsiveMargin"
+		   width="auto">
+         <content>
+            <Text class="date_text" text="Date from:" />
+            <DatePicker id="picker_f"
+				change=".filter" />
+         </content>
+         <content>
+            <Text class="date_text" text="Date to:" />
+            <DatePicker id="picker_t"
+				change=".filter"
+            />
+         </content>
+      </Panel>
+      <content id="overview_content">       
+         <f:GridContainer>
+	        <f:layout>
+		        <f:GridContainerSettings columnSize="35rem" gap="1rem" />
+	        </f:layout>
+	        <f:layoutS>
+		        <f:GridContainerSettings columnSize="20rem" gap="1rem" />
+	        </f:layoutS>
+	        <f:items>
+               <Panel 	
+                  headerText="Customers"
+		            class="sapUiResponsiveMargin"
+		            width="auto"
+                  height="auto">
+                  <content>
+                     <viz:Donut id="vizDonut_cust" visible="true" width="100%" />
+                  </content>
+               </Panel>
+               <Panel 	
+                  headerText="Deposit/Payout"
+		            class="sapUiResponsiveMargin"
+		            width="auto"
+                  height="auto" >
+                  <content>
+                     <viz:Donut id="vizDonut_DP" visible="true" width="100%" />
+                  </content>
+               </Panel>
+                <Panel 	
+                  headerText="Sales"
+		            class="sapUiResponsiveMargin"
+		            width="auto">
+                   <content>
+                     <viz:Bar id="vizBar" visible="true" width="100%" />
+                  </content>
+               </Panel>
+               <Panel 	
+                  headerText="Volume"
+		            class="sapUiResponsiveMargin"
+		            width="auto"
+                  height="30rem">
+                  <content>
+                     <Text id="numCon1" class="number"/>
+                     <Text id="numCon2" class="number"/>
+                     <Text id="numCon3" class="number"/>
+                  </content>
+               </Panel>
+	        </f:items>
+        </f:GridContainer>
+      </content>
+   </Page>
+</mvc:View>

@@ -1,0 +1,100 @@
+<mvc:View
+	controllerName="sap.ui.sap-ui5.controller.customer"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:f="sap.f"
+	xmlns:tnt="sap.tnt"
+	height="100%"
+	widht="100%"
+	xmlns:l="sap.ui.layout">
+<tnt:ToolPage id="toolPage">
+		<tnt:sideContent>
+			<tnt:SideNavigation>
+				<tnt:NavigationList>
+					<tnt:NavigationListItem text="Filter" select="onSort" icon="sap-icon://sort">
+					</tnt:NavigationListItem>
+					<tnt:NavigationListItem text="Group" select="onGroup" icon="sap-icon://group-2">
+					</tnt:NavigationListItem>
+				</tnt:NavigationList>
+				<tnt:fixedItem>
+				<tnt:NavigationList>
+				<tnt:NavigationListItem text="{i18n>layout1Title}" icon="sap-icon://home" select=".onPress" />
+				</tnt:NavigationList>
+				</tnt:fixedItem>
+			</tnt:SideNavigation>
+		</tnt:sideContent>
+		<tnt:mainContents>
+		<NavContainer id="pageContainer">
+		<Page
+			id="detail"
+			title="{i18n>ListeTitle}"
+			backgroundDesign= "Solid"
+			showNavButton="{= !${device>/system/desktop} }"
+			class="sapUiStdPage">
+			<mvc:XMLView viewName="sap.ui.sap-ui5.view.navigation"/>
+			<Table
+		      id="Kundenliste"
+		      class="sapUiResponsiveMargin"
+		      width="auto"
+		      items="{
+			      path : 'customer-data>/Customer-Data',
+			      sorter : {
+				      path : 'Geschlecht',
+				      group : true
+			      }
+		      }">
+				<headerToolbar>
+					<OverflowToolbar>
+						<ToolbarSpacer/>
+						<SearchField id="s_1V" search="onFilterCustomer" width="17.5rem" placeholder="{i18n>columnVorname}"/>
+						<SearchField id="s_2N" search="onFilterCustomer" width="17.5rem" placeholder="{i18n>columnNachname}"/>
+					</OverflowToolbar>
+				</headerToolbar>
+		      	<columns>
+			     		<Column>
+				      		<Text text="{i18n>columnKundeId}"/>
+			      		</Column>
+			      		<Column>
+				      		<Text text="{i18n>columnVorname}"/>
+			      		</Column>
+			      		<Column>
+				      		<Text text="{i18n>columnNachname}"/>
+			      		</Column>
+			      		<Column>
+				      		<Text text="{i18n>columnAlter}"/>
+			      		</Column>
+			      		<Column>
+				      		<Text text="{i18n>columnGeschlecht}"/>
+			      		</Column>
+			      		<Column>
+				      		<Text text="{i18n>columnKonto}"/>
+			      		</Column>
+		      	</columns>
+				<items>
+					<ColumnListItem
+						type="Navigation">
+		     		<cells>
+   	               		<ObjectNumber number="{customer-data>ID}" emphasized="false"/>
+						<ObjectIdentifier title="{customer-data>Vorname}"/>
+						<ObjectIdentifier title="{customer-data>Nachname}"/>
+						<Text text="{customer-data>Alter}" />
+						<Text text="{customer-data>Geschlecht}"/>
+						<ObjectNumber
+							number="{
+								parts: [{path: 'customer-data>Kontostand'}, {path: 'view>/currency'}],
+								type: 'sap.ui.model.type.Currency',
+								formatOptions: {
+									showMeasure: false
+								}
+							}"
+								unit="{view>/currency}"
+								state="{= ${customer-data>Kontostand} > 100000 ? 'Error' : 'Success' }"/>
+					</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</Page>
+		</NavContainer>
+		</tnt:mainContents>
+	</tnt:ToolPage>
+</mvc:View>

@@ -1,0 +1,75 @@
+<mvc:View
+   controllerName="sap.ui.sap-ui5.controller.customer"
+   xmlns="sap.m"
+   xmlns:f="sap.f"
+   xmlns:mvc="sap.ui.core.mvc">
+        <Panel accessibleRole="Region">
+		    <headerToolbar>
+			    <Toolbar>
+				    <Title text="{i18n>ListeTitle}"/>
+				    <ToolbarSpacer/>
+				    <SearchField
+					    width="50%"
+					    search=".onFilterInvoices"
+					    ariaLabelledBy="searchFieldLabel"
+					    ariaDescribedBy="searchFieldDescription"
+					    placeholder="Search"/>
+			    </Toolbar>
+		    </headerToolbar>
+	      <Table
+		      id="Kundenliste"
+		      class="sapUiResponsiveMargin"
+		      width="auto"
+		      items="{
+			      path : 'customer-data>/Customer-Data',
+			      sorter : {
+				      path : 'Geschlecht',
+				      group : true
+			      }
+		      }">
+		      <columns>
+			      <Column>
+				      <Text text="{i18n>columnKundeId}"/>
+			      </Column>
+			      <Column>
+				      <Text text="{i18n>columnVorname}"/>
+			      </Column>
+			      <Column>
+				      <Text text="{i18n>columnNachname}"/>
+			      </Column>
+			      <Column>
+				      <Text text="{i18n>columnAlter}"/>
+			      </Column>
+			      <Column>
+				      <Text text="{i18n>columnGeschlecht}"/>
+			      </Column>
+			      <Column>
+				      <Text text="{i18n>columnKonto}"/>
+			      </Column>
+		      </columns>
+		      <items>
+			      <ColumnListItem
+				      type="Navigation"
+				      press=".onPress">
+				      <cells>
+   	               <ObjectNumber number="{customer-data>ID}" emphasized="false"/>
+					      <ObjectIdentifier title="{customer-data>Vorname}"/>
+					      <ObjectIdentifier title="{customer-data>Nachname}"/>
+					      <Text text="{customer-data>Alter}" />
+					      <Text text="{customer-data>Geschlecht}"/>
+					      <ObjectNumber
+						      number="{
+							      parts: [{path: 'customer-data>Kontostand'}, {path: 'view>/currency'}],
+							      type: 'sap.ui.model.type.Currency',
+							      formatOptions: {
+								      showMeasure: false
+							      }
+						      }"
+						      unit="{view>/currency}"
+						      state="{= ${customer-data>Kontostand} > 100000 ? 'Error' : 'Success' }"/>
+				      </cells>
+			      </ColumnListItem>
+		      </items>
+	      </Table>
+	   </Panel>
+</mvc:View>

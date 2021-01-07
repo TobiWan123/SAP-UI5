@@ -1,0 +1,44 @@
+html[dir="ltr"] .myAppDemoWT .myCustomButton.sapMBtn {
+    margin-right: 0.125rem
+ }
+ 
+ html[dir="rtl"] .myAppDemoWT .myCustomButton.sapMBtn {
+    margin-left: 0.125rem
+ }
+ 
+ .myAppDemoWT .myCustomText {
+    display: inline-block;
+    font-weight: bold;
+ }
+
+.number{
+   padding: 40px;
+   
+ }
+
+.number:nth-child(1){
+   font-size: 40px;
+   color: green;
+}
+
+.number:nth-child(2){
+   font-size: 30px;
+   color: lightblue;
+   
+}
+
+.number:nth-child(3){
+   font-size: 30px;
+   color: lightblue;
+}
+
+.log-btn{
+   float: right;
+}
+
+.date_text{
+   font-size: 14px;
+   font-weight: bold;
+   width: 75px;
+}
+
